@@ -51,7 +51,7 @@ namespace SnakeWPF
 
             _playerOne.Move();
 
-            if (Apple.Collison(_playerOne.Head_X, _playerOne.Head_Y))
+            if (_apple.Collision(_playerOne.Head_X, _playerOne.Head_Y))
             {
                 do
                 {
@@ -74,7 +74,7 @@ namespace SnakeWPF
 
         private static void GameOver()
         {
-            Timer.Stop();
+            _timer.Stop();
             Global.GameOver = true;
             _playerOne.ClearList();
             Global.LoseScreen.Opacity = 1;
