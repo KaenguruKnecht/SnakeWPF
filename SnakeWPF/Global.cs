@@ -23,22 +23,28 @@ namespace SnakeWPF
         public const int StartLength = 4; // Schlangenlänge bei Begin
         public const int StartSpeed = 200; // ms
         public static int HightOfLevel { 
-            get { return Convert.ToInt32(GamingArea.Height); }
+            get { return Convert.ToInt32(GamingArea.ActualHeight); }
             private set { }
         }
         public static int WidthOfLevel
         {
-            get { return Convert.ToInt32(GamingArea.Width); }
+            get { return Convert.ToInt32(GamingArea.ActualWidth); }
             private set { }
         }
 
         public static int HorizontalElementsCount {
-            get { return Convert.ToInt32(GamingArea.Width) / ElementEdgeSize; }
+            get
+            { 
+                return Convert.ToInt32(GamingArea.ActualWidth) / ElementEdgeSize;
+            }
             private set { }
         }
         public static int VerticalElementsCount {
-            get;
-            set; 
+            get
+            {
+                return Convert.ToInt32(GamingArea.ActualHeight) / ElementEdgeSize;
+            }
+            private set { }
         }
         static Global()
         {

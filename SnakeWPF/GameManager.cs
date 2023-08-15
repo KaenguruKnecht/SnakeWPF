@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Threading;
 
 namespace SnakeWPF
@@ -20,6 +21,7 @@ namespace SnakeWPF
 
         public static void Initialize()
         {
+
             _timer = new DispatcherTimer();
 
             _gameSpeed = Global.StartSpeed;
@@ -40,7 +42,6 @@ namespace SnakeWPF
             _levelOne = new Level();
             _levelOne.Create();
             _levelOne.Show();
-
             _timer.Start();
         }
 
@@ -48,7 +49,6 @@ namespace SnakeWPF
         {
             _playerOne.RemoveFromCanvas();
             _apple.RemoveFromCanvas();
-
             _playerOne.Move();
 
             if (_apple.Collision(_playerOne.Head_X, _playerOne.Head_Y))
@@ -58,7 +58,7 @@ namespace SnakeWPF
                     _apple.SetNewPosition();
                 }
                 while (_levelOne.Collision(_apple.X, _apple.Y));
-                _playerOne.Grow(2);
+                _playerOne.Grow(1);
 
                 Global.Score += 100;
                 Global.TextBlockScore.Text = "Score " + Convert.ToString(Global.Score);

@@ -24,7 +24,6 @@ namespace SnakeWPF
         {
             InitializeComponent();
         }
-        int Score = 0;
         bool _firstTime = true;
 
         private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -34,13 +33,15 @@ namespace SnakeWPF
             if (_firstTime)
             {
                 Global.GamingArea = Canvas;
-                
+                Global.TextBlockScore = TextBlockScore;
+                Global.LoseScreen = LoseScreen;
                 _firstTime = false;
             }
 
             if (e.Key == Key.Enter)
             {
-                LoseScreen.Visibility = Visibility.Collapsed;
+                GameManager.Initialize();
+                
             }
 
             //KeyHistory.Add(e.Key);
