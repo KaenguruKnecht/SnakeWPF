@@ -34,6 +34,7 @@ namespace SnakeWPF
             {
                 Global.GamingArea = Canvas;
                 Global.TextBlockScore = TextBlockScore;
+                Global.TextBlockHighscore = TextBlockHighscore;
                 Global.LoseScreen = LoseScreen;
                 _firstTime = false;
             }

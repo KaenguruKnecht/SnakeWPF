@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Threading;
 
@@ -20,12 +21,14 @@ namespace SnakeWPF
         private static Apple _redApple { get; set; }
         private static Apple _blueApple { get; set; }
         private static Level _levelOne { get; set; }
+        private static Background _background { get; set; }
 
         // Methoden
         public static void Initialize()
         {
 
             _timer = new DispatcherTimer();
+            _background = new Background();
 
             _gameSpeed = Global.StartSpeed;
             SpeedManager(0);
@@ -35,6 +38,9 @@ namespace SnakeWPF
 
             Global.Score = 0;
             Global.TextBlockScore.Text = "Score: " + Convert.ToString(Global.Score);
+
+            _background.Import();
+            Global.TextBlockHighscore.Text ="Highscore: " + Convert.ToString(Global.Highscore);
 
             Global.LoseScreen.Opacity = 0;
 
@@ -72,7 +78,10 @@ namespace SnakeWPF
                 SpeedManager(-5);
             }
             if (_playerOne.Collision(_playerOne.Head_X, _playerOne.Head_Y) || _levelOne.Collision(_playerOne.Head_X, _playerOne.Head_Y))
+            {
+                _background.Export();
                 GameOver();
+            }
 
 
         }
