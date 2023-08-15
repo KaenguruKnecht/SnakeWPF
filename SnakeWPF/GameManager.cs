@@ -59,16 +59,16 @@ namespace SnakeWPF
                 {
                     _apple.SetNewPosition();
                 }
-                while (_levelOne.Collision(_apple.X, _apple.Y));
+                while (_levelOne.Collision(_apple.X, _apple.Y) || _playerOne.Collision(_apple.X, _apple.Y));
                 _playerOne.Grow(1);
 
                 Global.Score += 100;
                 Global.TextBlockScore.Text = "Score " + Convert.ToString(Global.Score);
                 SpeedManager(-5);
             }
-
             if (_playerOne.Collision(_playerOne.Head_X, _playerOne.Head_Y) || _levelOne.Collision(_playerOne.Head_X, _playerOne.Head_Y))
-                    GameOver();
+                GameOver();
+
 
             _apple.Show();
             _playerOne.Show();
@@ -80,6 +80,7 @@ namespace SnakeWPF
             Global.GameOver = true;
             _playerOne.ClearList();
             Global.LoseScreen.Opacity = 1;
+            Initialize();
         }
 
         private static void SpeedManager(int pDeltaSpeed)

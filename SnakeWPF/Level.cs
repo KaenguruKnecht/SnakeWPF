@@ -47,7 +47,14 @@ namespace SnakeWPF
         }
         public bool Collision(int pXPosition, int pYPosition)
         {
-            return true;
+            foreach (Element elementlevel in _levelsElements)
+            {
+                if (pXPosition == elementlevel.X && pYPosition == elementlevel.Y)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

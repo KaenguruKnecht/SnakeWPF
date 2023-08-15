@@ -46,7 +46,7 @@ namespace SnakeWPF
         }
         public void Show()
         {
-         // Die Position undseres Quadrates festlegen
+         // Die Position unseres Quadrates festlegen
             Canvas.SetLeft(_square, X);
             Canvas.SetTop(_square, Y);
 

@@ -19,7 +19,7 @@ namespace SnakeWPF
         public static int Score { get; set; }
         public static bool GameOver { get; set; }
 
-        public const int ElementEdgeSize = 50; // Feldergröße
+        public const int ElementEdgeSize = 20; // Feldergröße
         public const int StartLength = 4; // Schlangenlänge bei Begin
         public const int StartSpeed = 200; // ms
         public static int HightOfLevel { 
