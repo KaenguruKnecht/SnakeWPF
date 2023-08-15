@@ -42,7 +42,9 @@ namespace SnakeWPF
             _levelOne = new Level();
             _levelOne.Create();
             _levelOne.Show();
+            _playerOne.Show();
             _timer.Start();
+
         }
 
         private static void OnTick(object sender, EventArgs e)

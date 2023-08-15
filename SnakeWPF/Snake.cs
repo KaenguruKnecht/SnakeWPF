@@ -28,7 +28,7 @@ namespace SnakeWPF
         {
             for (int i = 0; i < numberOfElements; i++)
             {
-                _snake.Add(new Element(System.Windows.Media.Brushes.Green, false));
+                _snake.Add(new Element(System.Windows.Media.Brushes.Yellow, false));
                 if (_snake.Count <= 1)
                 {
                     _snake[0].X = Global.HorizontalElementsCount / 2 * Global.ElementEdgeSize;

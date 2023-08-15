@@ -25,7 +25,7 @@ namespace SnakeWPF
         public void SetNewPosition()
         {
             X = rnd.Next(1, Global.HorizontalElementsCount - 1) * Global.ElementEdgeSize;
-            X = rnd.Next(1, Global.HorizontalElementsCount - 1) * Global.ElementEdgeSize;
+            Y = rnd.Next(1, Global.VerticalElementsCount - 1) * Global.ElementEdgeSize;
             design.X = X;
             design.Y = Y;
         }
