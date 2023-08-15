@@ -41,10 +41,9 @@ namespace SnakeWPF
             if (e.Key == Key.Enter)
             {
                 GameManager.Initialize();
-                
             }
 
-            //KeyHistory.Add(e.Key);
+            KeyHistory.Add(e.Key);
             e.Handled = true;
         }
     }
