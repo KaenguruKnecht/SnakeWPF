@@ -13,6 +13,7 @@ namespace SnakeWPF
     {
         // Felder
         private List<Element> _snake = new List<Element>();
+
         public int Head_X
         {
             get
@@ -20,6 +21,7 @@ namespace SnakeWPF
                return _snake[0].X;
             }
         }
+
         public int Head_Y
         {
             get
@@ -27,10 +29,12 @@ namespace SnakeWPF
                 return _snake[0].Y;
             }
         }
+
     public Snake()
         {
             Grow(Global.StartLength);
         }
+
         public void Grow(int numberOfElements)
         {
             for (int i = 0; i < numberOfElements; i++)

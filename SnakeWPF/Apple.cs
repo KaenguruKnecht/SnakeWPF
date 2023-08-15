@@ -14,6 +14,9 @@ namespace SnakeWPF
         static Random rnd = new Random();
         Element design = new Element(Brushes.Red, true);
 
+        
+
+        // Eigenschaften
         public int X { get; set; }
         public int Y { get; set; }
 

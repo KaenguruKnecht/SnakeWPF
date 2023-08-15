@@ -15,6 +15,7 @@ namespace SnakeWPF
     {
         private Rectangle _square = new Rectangle();
         private SolidColorBrush _color;
+        public SolidColorBrush Brush { get; set; }
         private bool _round;
 
         public int X { get; set; }
