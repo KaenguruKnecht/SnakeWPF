@@ -12,7 +12,6 @@ namespace SnakeWPF
     {
         private List<Element> _levelsElements = new List<Element>();
 
-
         public void Create()
         {
             List<Element> upper = new List<Element>();

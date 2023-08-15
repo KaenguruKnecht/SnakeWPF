@@ -9,5 +9,9 @@ namespace SnakeWPF
     // Speichern der Tasteneingaben des Spielers
     static class KeyHistory
     {
+        public GetWaitingKey()
+        {
+
+        }
     }
 }

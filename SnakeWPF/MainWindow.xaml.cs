@@ -43,7 +43,7 @@ namespace SnakeWPF
                 LoseScreen.Visibility = Visibility.Collapsed;
             }
 
-            KeyHistory.Add(e.Key);
+            //KeyHistory.Add(e.Key);
             e.Handled = true;
         }
     }
