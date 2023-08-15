@@ -31,11 +31,11 @@ namespace SnakeWPF
             for (int i = 0; i < Global.VerticalElementsCount; i++)
             {
                 left.Add(new Element(Brushes.YellowGreen, false));
-                left[i].X = i * Global.ElementEdgeSize;
-                left[i].Y = 0;
+                left[i].Y = i * Global.ElementEdgeSize;
+                left[i].X = 0;
                 right.Add(new Element(Brushes.YellowGreen, false));
-                right[i].X = i * Global.ElementEdgeSize;
-                right[i].Y = (int)Global.WidthOfLevel - Global.ElementEdgeSize;
+                right[i].Y = i * Global.ElementEdgeSize;
+                right[i].X = (int)Global.WidthOfLevel - Global.ElementEdgeSize;
             }
 
             _levelsElements = upper.Concat(lower).Concat(left).Concat(right).ToList();
@@ -47,7 +47,14 @@ namespace SnakeWPF
         }
         public bool Collision(int pXPosition, int pYPosition)
         {
-            return true;
+            foreach (Element elementlevel in _levelsElements)
+            {
+                if (pXPosition == elementlevel.X && pYPosition == elementlevel.Y)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

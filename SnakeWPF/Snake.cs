@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace SnakeWPF
 {
@@ -14,13 +15,19 @@ namespace SnakeWPF
         private List<Element> _snake = new List<Element>();
         public int Head_X
         {
-            get => _snake[0].X;
+            get
+            {
+               return _snake[0].X;
+            }
         }
         public int Head_Y
         {
-            get => _snake[0].Y;
+            get
+            {
+                return _snake[0].Y;
+            }
         }
-        public Snake()
+    public Snake()
         {
             Grow(Global.StartLength);
         }
@@ -28,7 +35,7 @@ namespace SnakeWPF
         {
             for (int i = 0; i < numberOfElements; i++)
             {
-                _snake.Add(new Element(System.Windows.Media.Brushes.Green, false));
+                _snake.Add(new Element(Brushes.White, false));
                 if (_snake.Count <= 1)
                 {
                     _snake[0].X = Global.HorizontalElementsCount / 2 * Global.ElementEdgeSize;
@@ -36,20 +43,24 @@ namespace SnakeWPF
                 }
                 else
                 {
-                    _snake[_snake.Count - 1].X = -Global.ElementEdgeSize;
-                    _snake[_snake.Count - 1].Y = -Global.ElementEdgeSize;
+                    _snake[_snake.Count - 1].X = -2 / Global.ElementEdgeSize;
+                    _snake[_snake.Count - 1].Y = -2 / Global.ElementEdgeSize;
                 }
             }
         }
         public void Show()
         {
             foreach (Element element in _snake)
+            {
                 element.Show();
+            }
         }
         public void RemoveFromCanvas()
         {
             foreach (Element element in _snake)
+            {
                 element.RemoveFromCanvas();
+            }
         }
         public void Move()
         {
@@ -83,8 +94,10 @@ namespace SnakeWPF
         {
             for (int i = 1; i < _snake.Count; i++)
             {
-                if (x_Position == _snake[i].X && y_Position == _snake[i].Y)
+                if (Head_X == _snake[i].X && Head_Y == _snake[i].Y)
+                {
                     return true;
+                }
             }
             return false;
         }
