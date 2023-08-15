@@ -17,13 +17,12 @@ namespace SnakeWPF
         private static Snake _playerOne { get; set; }
         private static Apple _apple { get; set; }
         private static Level _levelOne { get; set; }
-        private static int GameSpeed { get; set; }
 
         public static void Initialize()
         {
             _timer = new DispatcherTimer();
 
-            GameSpeed = Global.StartSpeed;
+            _gameSpeed = Global.StartSpeed;
             SpeedManager(0);
 
             _timer.Tick += OnTick;
@@ -43,22 +42,6 @@ namespace SnakeWPF
             _levelOne.Show();
 
             _timer.Start();
-        }
-
-        private static void GameOver()
-        {
-
-        }
-        
-        private static void SpeedManager(int pDeltaSpeed) 
-        {
-            if (_gameSpeed + pDeltaSpeed <= 1)
-            {
-                _gameSpeed = 1;
-            }
-            _gameSpeed = _gameSpeed + pDeltaSpeed;
-            
-            _timer.Interval = new TimeSpan(0, 0, 0, _gameSpeed);
         }
 
         private static void OnTick(object sender, EventArgs e)
@@ -87,7 +70,23 @@ namespace SnakeWPF
 
             _apple.Show();
             _playerOne.Show();
+        }
 
+        private static void GameOver()
+        {
+            Timer.Stop();
+            Global.GameOver = true;
+            _playerOne.ClearList();
+            Global.LoseScreen.Opacity = 1;
+        }
+
+        private static void SpeedManager(int pDeltaSpeed)
+        {
+            if (_gameSpeed + pDeltaSpeed <= 1)
+                _gameSpeed = 1;
+            _gameSpeed = _gameSpeed + pDeltaSpeed;
+
+            _timer.Interval = new TimeSpan(0, 0, 0, 0, _gameSpeed);
         }
     }
 }
