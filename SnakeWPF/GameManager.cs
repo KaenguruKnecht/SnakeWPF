@@ -19,6 +19,7 @@ namespace SnakeWPF
         private static Apple _apple { get; set; }
         private static Level _levelOne { get; set; }
 
+        // Methoden
         public static void Initialize()
         {
 

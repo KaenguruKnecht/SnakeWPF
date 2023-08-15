@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 
 namespace SnakeWPF
@@ -12,10 +8,15 @@ namespace SnakeWPF
     // anderen Klassen immer darauf zugreifen können.
     static class Global
     {
+        // Konstanten
+        public const int ElementEdgeSize = 50; // Feldergröße
+        public const int StartLength = 4; // Schlangenlänge bei Begin
+        public const int StartSpeed = 200; // ms
+
+        // Eigenschaften
         public static Canvas GamingArea { get; set; }
         public static TextBlock TextBlockScore { get; set; }
         public static TextBlock LoseScreen { get; set; }
-
         public static int Score { get; set; }
         public static bool GameOver { get; set; }
 
@@ -46,6 +47,8 @@ namespace SnakeWPF
             }
             private set { }
         }
+
+        // Methoden
         static Global()
         {
             GameOver = true;
